@@ -1,0 +1,1388 @@
+# Mother Soil Equipments - source update
+# Run this PowerShell block from the project root.
+$ErrorActionPreference = 'Stop'
+
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent 'src/data/company.js') | Out-Null
+@'
+export const company = {
+  name: "Mother Soil Equipments",
+  address: "780/141 G1, P. Vangali Complex, Salem Road, Namakkal - 637 001, Tamil Nadu",
+  phones: ["+91 88388 94126", "+91 95858 70654"],
+  email: "mothersoilnkl@gmail.com",
+  social: {
+    instagram: "",
+    facebook: "",
+    youtube: "",
+  },
+}
+'@ | Set-Content -Path 'src/data/company.js' -Encoding UTF8
+
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent 'src/data/categories.js') | Out-Null
+@'
+export const categories = [
+  {
+    id: "sprayers",
+    name: { en: "Sprayers", ta: "தெளிப்பான்கள்" },
+    description: {
+      en: "Sprayers for crop and agricultural applications.",
+      ta: "பயிர் மற்றும் விவசாய பயன்பாடுகளுக்கான தெளிப்பான்கள்.",
+    },
+    image: "/images/logo.jpg",
+  },
+  {
+    id: "brush-cutters",
+    name: { en: "Brush Cutters", ta: "புல் வெட்டும் இயந்திரங்கள்" },
+    description: {
+      en: "Brush cutters for efficient vegetation and grass cutting.",
+      ta: "புல் மற்றும் தேவையற்ற தாவரங்களை திறம்பட வெட்டுவதற்கான இயந்திரங்கள்.",
+    },
+    image: "/images/logo.jpg",
+  },
+  {
+    id: "weeders",
+    name: { en: "Weeders", ta: "களை எடுக்கும் இயந்திரங்கள்" },
+    description: {
+      en: "Weeding equipment for practical farm use.",
+      ta: "விவசாய பயன்பாட்டிற்கான களை எடுக்கும் உபகரணங்கள்.",
+    },
+    image: "/images/logo.jpg",
+  },
+  {
+    id: "power-tools",
+    name: { en: "Power Tools", ta: "பவர் கருவிகள்" },
+    description: {
+      en: "Power tools for agricultural and practical applications.",
+      ta: "விவசாயம் மற்றும் பல்வேறு பயன்பாடுகளுக்கான பவர் கருவிகள்.",
+    },
+    image: "/images/logo.jpg",
+  },
+  {
+    id: "accessories",
+    name: { en: "Accessories", ta: "உதிரி பாகங்கள் மற்றும் துணைக்கருவிகள்" },
+    description: {
+      en: "Useful accessories and supporting equipment.",
+      ta: "பயனுள்ள துணைக்கருவிகள் மற்றும் ஆதரவு உபகரணங்கள்.",
+    },
+    image: "/images/logo.jpg",
+  },
+  {
+    id: "other-equipment",
+    name: { en: "Other Equipment", ta: "பிற உபகரணங்கள்" },
+    description: {
+      en: "Other agricultural equipment and machinery.",
+      ta: "பிற விவசாய உபகரணங்கள் மற்றும் இயந்திரங்கள்.",
+    },
+    image: "/images/logo.jpg",
+  },
+]
+'@ | Set-Content -Path 'src/data/categories.js' -Encoding UTF8
+
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent 'src/data/products.js') | Out-Null
+@'
+export const products = [
+  {
+    id: "battery-sprayer",
+    categoryId: "sprayers",
+    name: { en: "Battery Sprayer", ta: "பேட்டரி தெளிப்பான்" },
+    description: {
+      en: "A practical sprayer for agricultural applications.",
+      ta: "விவசாய பயன்பாடுகளுக்கான நடைமுறை தெளிப்பான்.",
+    },
+    image: "/images/logo.jpg",
+    subsidy: { applicable: false, scheme: "", note: "" },
+  },
+  {
+    id: "manual-sprayer",
+    categoryId: "sprayers",
+    name: { en: "Manual Sprayer", ta: "கை தெளிப்பான்" },
+    description: {
+      en: "A manual spraying solution for farm use.",
+      ta: "விவசாய பயன்பாட்டிற்கான கைமுறை தெளிப்பு கருவி.",
+    },
+    image: "/images/logo.jpg",
+    subsidy: { applicable: false, scheme: "", note: "" },
+  },
+  {
+    id: "knapsack-sprayer",
+    categoryId: "sprayers",
+    name: { en: "Knapsack Sprayer", ta: "முதுகில் சுமக்கும் தெளிப்பான்" },
+    description: {
+      en: "A convenient knapsack-style sprayer for agricultural work.",
+      ta: "விவசாயப் பணிகளுக்கான வசதியான முதுகில் சுமக்கும் தெளிப்பான்.",
+    },
+    image: "/images/logo.jpg",
+    subsidy: { applicable: false, scheme: "", note: "" },
+  },
+  {
+    id: "power-sprayer",
+    categoryId: "sprayers",
+    name: { en: "Power Sprayer", ta: "பவர் தெளிப்பான்" },
+    description: {
+      en: "A power-operated spraying solution for agricultural use.",
+      ta: "விவசாய பயன்பாட்டிற்கான பவர் இயக்கப்படும் தெளிப்பு கருவி.",
+    },
+    image: "/images/logo.jpg",
+    subsidy: { applicable: false, scheme: "", note: "" },
+  },
+  {
+    id: "petrol-brush-cutter",
+    categoryId: "brush-cutters",
+    name: { en: "Petrol Brush Cutter", ta: "பெட்ரோல் புல் வெட்டும் இயந்திரம்" },
+    description: {
+      en: "A brush cutter for grass and vegetation management.",
+      ta: "புல் மற்றும் தாவரங்களை வெட்டுவதற்கான பிரஷ் கட்டர்.",
+    },
+    image: "/images/logo.jpg",
+    subsidy: { applicable: false, scheme: "", note: "" },
+  },
+  {
+    id: "heavy-duty-brush-cutter",
+    categoryId: "brush-cutters",
+    name: { en: "Heavy Duty Brush Cutter", ta: "ஹெவி டியூட்டி புல் வெட்டும் இயந்திரம்" },
+    description: {
+      en: "A heavy-duty option for demanding vegetation cutting work.",
+      ta: "கடினமான புல் மற்றும் தாவர வெட்டும் பணிகளுக்கான ஹெவி டியூட்டி இயந்திரம்.",
+    },
+    image: "/images/logo.jpg",
+    subsidy: { applicable: false, scheme: "", note: "" },
+  },
+  {
+    id: "mini-weeder",
+    categoryId: "weeders",
+    name: { en: "Mini Weeder", ta: "மினி களை எடுக்கும் இயந்திரம்" },
+    description: {
+      en: "Compact weeding equipment for practical farm use.",
+      ta: "விவசாய பயன்பாட்டிற்கான சிறிய களை எடுக்கும் இயந்திரம்.",
+    },
+    image: "/images/logo.jpg",
+    subsidy: { applicable: false, scheme: "", note: "" },
+  },
+  {
+    id: "power-weeder",
+    categoryId: "weeders",
+    name: { en: "Power Weeder", ta: "பவர் வீடர்" },
+    description: {
+      en: "Power-operated equipment for agricultural weeding work.",
+      ta: "விவசாய களை எடுக்கும் பணிகளுக்கான பவர் இயக்கப்படும் இயந்திரம்.",
+    },
+    image: "/images/logo.jpg",
+    subsidy: { applicable: false, scheme: "", note: "" },
+  },
+  {
+    id: "portable-power-tool",
+    categoryId: "power-tools",
+    name: { en: "Portable Power Tool", ta: "போர்டபிள் பவர் கருவி" },
+    description: {
+      en: "A portable tool for agricultural and practical applications.",
+      ta: "விவசாயம் மற்றும் பல்வேறு பயன்பாடுகளுக்கான போர்டபிள் கருவி.",
+    },
+    image: "/images/logo.jpg",
+    subsidy: { applicable: false, scheme: "", note: "" },
+  },
+  {
+    id: "tool-accessory-kit",
+    categoryId: "accessories",
+    name: { en: "Tool Accessory Kit", ta: "கருவி துணைக்கருவி தொகுப்பு" },
+    description: {
+      en: "Supporting accessories for agricultural equipment.",
+      ta: "விவசாய உபகரணங்களுக்கான துணைக்கருவிகள்.",
+    },
+    image: "/images/logo.jpg",
+    subsidy: { applicable: false, scheme: "", note: "" },
+  },
+  {
+    id: "agricultural-equipment",
+    categoryId: "other-equipment",
+    name: { en: "Agricultural Equipment", ta: "விவசாய உபகரணம்" },
+    description: {
+      en: "Agricultural equipment for a range of practical applications.",
+      ta: "பல்வேறு விவசாய பயன்பாடுகளுக்கான உபகரணம்.",
+    },
+    image: "/images/logo.jpg",
+    subsidy: { applicable: false, scheme: "", note: "" },
+  },
+  {
+    id: "farm-machine",
+    categoryId: "other-equipment",
+    name: { en: "Farm Machinery", ta: "விவசாய இயந்திரம்" },
+    description: {
+      en: "Machinery for agricultural work and farm applications.",
+      ta: "விவசாயப் பணிகள் மற்றும் பண்ணை பயன்பாடுகளுக்கான இயந்திரம்.",
+    },
+    image: "/images/logo.jpg",
+    subsidy: { applicable: false, scheme: "", note: "" },
+  },
+]
+
+export const subsidyProducts = products.filter((product) => product.subsidy?.applicable)
+'@ | Set-Content -Path 'src/data/products.js' -Encoding UTF8
+
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent 'src/data/videos.js') | Out-Null
+@'
+export const videos = [
+  {
+    id: "sprayer-demo",
+    title: { en: "Sprayer Demo", ta: "தெளிப்பான் செய்முறை" },
+    thumbnail: "/images/logo.jpg",
+    url: "",
+  },
+  {
+    id: "brush-cutter-demo",
+    title: { en: "Brush Cutter Demo", ta: "பிரஷ் கட்டர் செய்முறை" },
+    thumbnail: "/images/logo.jpg",
+    url: "",
+  },
+  {
+    id: "weeder-demo",
+    title: { en: "Weeder Demo", ta: "களை எடுக்கும் இயந்திர செய்முறை" },
+    thumbnail: "/images/logo.jpg",
+    url: "",
+  },
+  {
+    id: "farm-equipment",
+    title: { en: "Agricultural Equipment", ta: "விவசாய உபகரணங்கள்" },
+    thumbnail: "/images/logo.jpg",
+    url: "",
+  },
+]
+'@ | Set-Content -Path 'src/data/videos.js' -Encoding UTF8
+
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent 'src/locales/en.js') | Out-Null
+@'
+export default {
+  nav: {
+    home: "Home",
+    products: "Products",
+    subsidy: "Subsidy",
+    about: "About",
+    contact: "Contact",
+  },
+  hero: {
+    eyebrow: "Mother Soil Equipments",
+    title: "Agricultural Equipment for Better Farming",
+    text: "Explore practical agricultural equipment for farmers and professionals.",
+    products: "Explore Products",
+    contact: "Contact Us",
+  },
+  categories: {
+    title: "Explore Our Categories",
+    view: "Explore",
+  },
+  videos: {
+    title: "Agricultural Videos",
+    text: "See agricultural equipment in action.",
+    watch: "Watch Video",
+  },
+  subsidy: {
+    title: "Subsidy-Supported Machinery",
+    text: "Explore agricultural machinery that may be covered under applicable government subsidy schemes.",
+    badge: "Subsidy",
+    view: "View Subsidy Machinery",
+    details: "Subsidy Details",
+    note: "Subsidy availability, eligibility and amount depend on the applicable government scheme.",
+    enquiry: "Enquire About Subsidy",
+  },
+  products: {
+    title: "Our Products",
+    subtitle: "Agricultural equipment for every farming need",
+    search: "Search products...",
+    all: "All",
+    results: "products",
+    noResults: "No products found.",
+    clear: "Clear Search",
+    details: "View Details",
+    enquire: "Enquire",
+    related: "Related Products",
+    category: "Category",
+    viewAll: "View All",
+  },
+  why: {
+    title: "Why Mother Soil",
+    quality: "Quality Equipment",
+    range: "Wide Product Range",
+    guidance: "Product Guidance",
+    support: "Customer Support",
+  },
+  about: {
+    title: "About Mother Soil",
+    text: "Mother Soil Equipments is based in Namakkal, Tamil Nadu, serving customers with agricultural equipment and related products.",
+    more: "Know More",
+  },
+  faq: {
+    title: "Frequently Asked Questions",
+    q1: "What agricultural equipment do you offer?",
+    a1: "We offer products across categories such as sprayers, brush cutters, weeders, power tools, accessories and other agricultural equipment.",
+    q2: "Do you provide subsidy-related guidance?",
+    a2: "We can help you understand available subsidy-related information for applicable agricultural machinery. Scheme rules and eligibility depend on the applicable government programme.",
+    q3: "How can I enquire about a product?",
+    a3: "Use the Enquire or WhatsApp option on a product, or contact Mother Soil Equipments directly.",
+    q4: "Where are you located?",
+    a4: "Mother Soil Equipments is located at Salem Road, Namakkal, Tamil Nadu.",
+  },
+  contact: {
+    title: "Need Equipment?",
+    text: "Talk to Mother Soil Equipments about your agricultural equipment needs.",
+    whatsapp: "WhatsApp Us",
+    call: "Call Us",
+    email: "Email Us",
+    formTitle: "Send an Enquiry",
+    name: "Your Name",
+    phone: "Phone Number",
+    message: "Your Message",
+    send: "Send Enquiry",
+    success: "Thank you. Your enquiry is ready to be sent.",
+  },
+  footer: {
+    follow: "Follow Mother Soil",
+    quickLinks: "Quick Links",
+    categories: "Categories",
+    rights: "All rights reserved.",
+  },
+}
+'@ | Set-Content -Path 'src/locales/en.js' -Encoding UTF8
+
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent 'src/locales/ta.js') | Out-Null
+@'
+export default {
+  nav: {
+    home: "முகப்பு",
+    products: "தயாரிப்புகள்",
+    subsidy: "மானியம்",
+    about: "எங்களைப் பற்றி",
+    contact: "தொடர்பு",
+  },
+  hero: {
+    eyebrow: "மதர் சாயில் எக்யூப்மென்ட்ஸ்",
+    title: "சிறந்த விவசாயத்திற்கான விவசாய உபகரணங்கள்",
+    text: "விவசாயிகள் மற்றும் தொழில்முறை பயன்பாட்டிற்கான நடைமுறை விவசாய உபகரணங்களைப் பாருங்கள்.",
+    products: "தயாரிப்புகளைப் பார்க்க",
+    contact: "தொடர்பு கொள்ள",
+  },
+  categories: {
+    title: "எங்கள் வகைகளைப் பாருங்கள்",
+    view: "பார்க்க",
+  },
+  videos: {
+    title: "விவசாய வீடியோக்கள்",
+    text: "விவசாய உபகரணங்கள் செயல்படும் விதத்தைப் பாருங்கள்.",
+    watch: "வீடியோ பார்க்க",
+  },
+  subsidy: {
+    title: "மானியத்திற்கு தகுதி பெறக்கூடிய இயந்திரங்கள்",
+    text: "பொருந்தும் அரசு மானியத் திட்டங்களின் கீழ் சேரக்கூடிய விவசாய இயந்திரங்களைப் பாருங்கள்.",
+    badge: "மானியம்",
+    view: "மானிய இயந்திரங்களைப் பார்க்க",
+    details: "மானிய விவரங்கள்",
+    note: "மானியத்தின் கிடைப்புத் தன்மை, தகுதி மற்றும் தொகை பொருந்தும் அரசு திட்டத்தைப் பொறுத்தது.",
+    enquiry: "மானியம் குறித்து விசாரிக்க",
+  },
+  products: {
+    title: "எங்கள் தயாரிப்புகள்",
+    subtitle: "ஒவ்வொரு விவசாயத் தேவைக்கும் விவசாய உபகரணங்கள்",
+    search: "தயாரிப்புகளைத் தேடுங்கள்...",
+    all: "அனைத்தும்",
+    results: "தயாரிப்புகள்",
+    noResults: "தயாரிப்புகள் எதுவும் கிடைக்கவில்லை.",
+    clear: "தேடலை அழிக்க",
+    details: "விவரங்களைப் பார்க்க",
+    enquire: "விசாரிக்க",
+    related: "தொடர்புடைய தயாரிப்புகள்",
+    category: "வகை",
+    viewAll: "அனைத்தையும் பார்க்க",
+  },
+  why: {
+    title: "ஏன் மதர் சாயில்",
+    quality: "தரமான உபகரணங்கள்",
+    range: "பலவகை தயாரிப்புகள்",
+    guidance: "தயாரிப்பு வழிகாட்டுதல்",
+    support: "வாடிக்கையாளர் ஆதரவு",
+  },
+  about: {
+    title: "மதர் சாயில் பற்றி",
+    text: "மதர் சாயில் எக்யூப்மென்ட்ஸ் தமிழ்நாட்டின் நாமக்கல்லில் செயல்பட்டு, விவசாய உபகரணங்கள் மற்றும் தொடர்புடைய தயாரிப்புகளை வழங்குகிறது.",
+    more: "மேலும் அறிய",
+  },
+  faq: {
+    title: "அடிக்கடி கேட்கப்படும் கேள்விகள்",
+    q1: "எந்த விவசாய உபகரணங்களை வழங்குகிறீர்கள்?",
+    a1: "தெளிப்பான்கள், புல் வெட்டும் இயந்திரங்கள், களை எடுக்கும் இயந்திரங்கள், பவர் கருவிகள், துணைக்கருவிகள் மற்றும் பிற விவசாய உபகரணங்கள் போன்ற பல வகைகளில் தயாரிப்புகள் உள்ளன.",
+    q2: "மானியம் தொடர்பான வழிகாட்டுதல் வழங்குகிறீர்களா?",
+    a2: "பொருந்தும் விவசாய இயந்திரங்களுக்கான மானியம் தொடர்பான தகவல்களைப் புரிந்துகொள்ள உதவலாம். திட்ட விதிமுறைகள் மற்றும் தகுதி அரசு திட்டத்தைப் பொறுத்தது.",
+    q3: "ஒரு தயாரிப்பு குறித்து எப்படி விசாரிப்பது?",
+    a3: "தயாரிப்பில் உள்ள விசாரிக்க அல்லது WhatsApp விருப்பத்தைப் பயன்படுத்தலாம் அல்லது மதர் சாயில் எக்யூப்மென்ட்ஸை நேரடியாகத் தொடர்பு கொள்ளலாம்.",
+    q4: "நீங்கள் எங்கு உள்ளீர்கள்?",
+    a4: "மதர் சாயில் எக்யூப்மென்ட்ஸ் சேலம் ரோடு, நாமக்கல், தமிழ்நாட்டில் அமைந்துள்ளது.",
+  },
+  contact: {
+    title: "உபகரணம் தேவைப்படுகிறதா?",
+    text: "உங்கள் விவசாய உபகரணத் தேவைகள் குறித்து மதர் சாயில் எக்யூப்மென்ட்ஸைத் தொடர்பு கொள்ளுங்கள்.",
+    whatsapp: "WhatsApp",
+    call: "அழைக்க",
+    email: "மின்னஞ்சல்",
+    formTitle: "விசாரணை அனுப்புங்கள்",
+    name: "உங்கள் பெயர்",
+    phone: "தொலைபேசி எண்",
+    message: "உங்கள் செய்தி",
+    send: "விசாரணை அனுப்ப",
+    success: "நன்றி. உங்கள் விசாரணை அனுப்பத் தயாராக உள்ளது.",
+  },
+  footer: {
+    follow: "மதர் சாயிலை பின்தொடருங்கள்",
+    quickLinks: "விரைவு இணைப்புகள்",
+    categories: "வகைகள்",
+    rights: "அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.",
+  },
+}
+'@ | Set-Content -Path 'src/locales/ta.js' -Encoding UTF8
+
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent 'src/App.vue') | Out-Null
+@'
+<script setup>
+import { computed, provide, ref, readonly } from "vue"
+import { RouterView } from "vue-router"
+import Navbar from "./components/Navbar.vue"
+import SiteFooter from "./components/SiteFooter.vue"
+import en from "./locales/en"
+import ta from "./locales/ta"
+
+const saved = localStorage.getItem("mother-soil-language")
+const language = ref(saved === "ta" ? "ta" : "en")
+const translations = { en, ta }
+
+const t = computed(() => translations[language.value])
+
+function changeLanguage(value) {
+  language.value = value
+  localStorage.setItem("mother-soil-language", value)
+}
+
+provide("siteI18n", {
+  language: readonly(language),
+  t,
+  changeLanguage,
+})
+</script>
+
+<template>
+  <div class="app-shell">
+    <Navbar />
+    <main>
+      <RouterView />
+    </main>
+    <SiteFooter />
+  </div>
+</template>
+'@ | Set-Content -Path 'src/App.vue' -Encoding UTF8
+
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent 'src/main.js') | Out-Null
+@'
+import { createApp } from "vue"
+import App from "./App.vue"
+import router from "./router"
+import "./assets/styles/main.css"
+
+createApp(App).use(router).mount("#app")
+'@ | Set-Content -Path 'src/main.js' -Encoding UTF8
+
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent 'src/router/index.js') | Out-Null
+@'
+import { createRouter, createWebHistory } from "vue-router"
+import Home from "../views/Home.vue"
+import Products from "../views/Products.vue"
+import ProductDetails from "../views/ProductDetails.vue"
+import About from "../views/About.vue"
+import Contact from "../views/Contact.vue"
+import Subsidy from "../views/Subsidy.vue"
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes: [
+    { path: "/", name: "home", component: Home },
+    { path: "/products", name: "products", component: Products },
+    { path: "/products/category/:categoryId", name: "category", component: Products },
+    { path: "/products/:categoryId/:productId", name: "product-details", component: ProductDetails },
+    { path: "/subsidy", name: "subsidy", component: Subsidy },
+    { path: "/about", name: "about", component: About },
+    { path: "/contact", name: "contact", component: Contact },
+  ],
+  scrollBehavior() {
+    return { top: 0 }
+  },
+})
+
+export default router
+'@ | Set-Content -Path 'src/router/index.js' -Encoding UTF8
+
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent 'src/components/Navbar.vue') | Out-Null
+@'
+<script setup>
+import { inject, ref } from "vue"
+import { RouterLink } from "vue-router"
+
+const { language, t, changeLanguage } = inject("siteI18n")
+const open = ref(false)
+
+function closeMenu() {
+  open.value = false
+}
+</script>
+
+<template>
+  <header class="site-header">
+    <div class="container nav-inner">
+      <RouterLink to="/" class="brand" @click="closeMenu">
+        <img src="/images/logo.jpg" alt="Mother Soil Equipments" />
+      </RouterLink>
+
+      <button class="menu-toggle" type="button" aria-label="Toggle menu" @click="open = !open">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav :class="[''main-nav'', { open }]">
+        <RouterLink to="/" @click="closeMenu">{{ t.nav.home }}</RouterLink>
+        <RouterLink to="/products" @click="closeMenu">{{ t.nav.products }}</RouterLink>
+        <RouterLink to="/subsidy" class="subsidy-link" @click="closeMenu">🌱 {{ t.nav.subsidy }}</RouterLink>
+        <RouterLink to="/about" @click="closeMenu">{{ t.nav.about }}</RouterLink>
+        <RouterLink to="/contact" @click="closeMenu">{{ t.nav.contact }}</RouterLink>
+        <div class="language-switcher">
+          <button :class="{ active: language === ''en'' }" @click="changeLanguage(''en'')">EN</button>
+          <button :class="{ active: language === ''ta'' }" @click="changeLanguage(''ta'')">தமிழ்</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+</template>
+'@ | Set-Content -Path 'src/components/Navbar.vue' -Encoding UTF8
+
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent 'src/components/CategoryCard.vue') | Out-Null
+@'
+<script setup>
+import { computed, inject } from "vue"
+import { RouterLink } from "vue-router"
+import { products } from "../data/products"
+
+const props = defineProps({ category: { type: Object, required: true } })
+const { language, t } = inject("siteI18n")
+const count = computed(() => products.filter((p) => p.categoryId === props.category.id).length)
+</script>
+
+<template>
+  <RouterLink :to="`/products/category/${category.id}`" class="category-card">
+    <div class="category-image">
+      <img :src="category.image" :alt="category.name[language]" />
+    </div>
+    <div class="category-content">
+      <span class="eyebrow">{{ count }} {{ t.products.results }}</span>
+      <h3>{{ category.name[language] }}</h3>
+      <p>{{ category.description[language] }}</p>
+      <span class="text-link">{{ t.categories.view }} →</span>
+    </div>
+  </RouterLink>
+</template>
+'@ | Set-Content -Path 'src/components/CategoryCard.vue' -Encoding UTF8
+
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent 'src/components/CategoryCarousel.vue') | Out-Null
+@'
+<script setup>
+import { inject, ref, onMounted, onUnmounted } from "vue"
+import CategoryCard from "./CategoryCard.vue"
+import { categories } from "../data/categories"
+
+const track = ref(null)
+const { t } = inject("siteI18n")
+let timer
+
+function scrollByAmount(amount) {
+  track.value?.scrollBy({ left: amount, behavior: "smooth" })
+}
+
+function start() {
+  stop()
+  timer = setInterval(() => {
+    if (!track.value) return
+    const max = track.value.scrollWidth - track.value.clientWidth
+    if (track.value.scrollLeft >= max - 10) {
+      track.value.scrollTo({ left: 0, behavior: "smooth" })
+    } else {
+      track.value.scrollBy({ left: 300, behavior: "smooth" })
+    }
+  }, 4200)
+}
+
+function stop() {
+  if (timer) clearInterval(timer)
+}
+
+onMounted(start)
+onUnmounted(stop)
+</script>
+
+<template>
+  <section class="section category-section">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Mother Soil</span>
+          <h2>{{ t.categories.title }}</h2>
+        </div>
+        <div class="carousel-controls">
+          <button aria-label="Previous categories" @click="scrollByAmount(-320); stop(); start()">←</button>
+          <button aria-label="Next categories" @click="scrollByAmount(320); stop(); start()">→</button>
+        </div>
+      </div>
+
+      <div ref="track" class="horizontal-track category-track" @mouseenter="stop" @mouseleave="start" @touchstart="stop" @touchend="start">
+        <CategoryCard v-for="category in categories" :key="category.id" :category="category" />
+      </div>
+    </div>
+  </section>
+</template>
+'@ | Set-Content -Path 'src/components/CategoryCarousel.vue' -Encoding UTF8
+
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent 'src/components/VideoCarousel.vue') | Out-Null
+@'
+<script setup>
+import { inject, ref, onMounted, onUnmounted } from "vue"
+import { videos } from "../data/videos"
+
+const { language, t } = inject("siteI18n")
+const track = ref(null)
+let timer
+
+function scrollByAmount(amount) {
+  track.value?.scrollBy({ left: amount, behavior: "smooth" })
+}
+
+function start() {
+  stop()
+  timer = setInterval(() => {
+    if (!track.value) return
+    const max = track.value.scrollWidth - track.value.clientWidth
+    if (track.value.scrollLeft >= max - 10) track.value.scrollTo({ left: 0, behavior: "smooth" })
+    else track.value.scrollBy({ left: 340, behavior: "smooth" })
+  }, 5000)
+}
+
+function stop() {
+  if (timer) clearInterval(timer)
+}
+
+onMounted(start)
+onUnmounted(stop)
+</script>
+
+<template>
+  <section class="section videos-section">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">Watch & Learn</span>
+          <h2>{{ t.videos.title }}</h2>
+          <p>{{ t.videos.text }}</p>
+        </div>
+        <div class="carousel-controls">
+          <button aria-label="Previous videos" @click="scrollByAmount(-340); stop(); start()">←</button>
+          <button aria-label="Next videos" @click="scrollByAmount(340); stop(); start()">→</button>
+        </div>
+      </div>
+
+      <div ref="track" class="horizontal-track video-track" @mouseenter="stop" @mouseleave="start" @touchstart="stop" @touchend="start">
+        <a
+          v-for="video in videos"
+          :key="video.id"
+          class="video-card"
+          :href="video.url || undefined"
+          :target="video.url ? ''_blank'' : undefined"
+          rel="noopener"
+          @click="video.url ? null : $event.preventDefault()"
+        >
+          <div class="video-thumb">
+            <img :src="video.thumbnail" :alt="video.title[language]" />
+            <span class="play-button">▶</span>
+          </div>
+          <div class="video-card-body">
+            <h3>{{ video.title[language] }}</h3>
+            <span class="text-link">{{ t.videos.watch }} →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</template>
+'@ | Set-Content -Path 'src/components/VideoCarousel.vue' -Encoding UTF8
+
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent 'src/components/ProductCard.vue') | Out-Null
+@'
+<script setup>
+import { computed, inject } from "vue"
+import { RouterLink } from "vue-router"
+import { categories } from "../data/categories"
+
+const props = defineProps({ product: { type: Object, required: true } })
+const { language, t } = inject("siteI18n")
+const category = computed(() => categories.find((c) => c.id === props.product.categoryId))
+
+const whatsappUrl = computed(() => {
+  const message = encodeURIComponent(`Hello Mother Soil Equipments, I am interested in ${props.product.name.en}.`)
+  return `https://wa.me/918838894126?text=${message}`
+})
+</script>
+
+<template>
+  <article class="product-card">
+    <RouterLink :to="`/products/${product.categoryId}/${product.id}`" class="product-image">
+      <img :src="product.image" :alt="product.name[language]" />
+    </RouterLink>
+
+    <div class="product-body">
+      <span class="eyebrow">{{ category?.name[language] }}</span>
+      <h3>{{ product.name[language] }}</h3>
+      <p>{{ product.description[language] }}</p>
+
+      <div class="product-actions">
+        <RouterLink :to="`/products/${product.categoryId}/${product.id}`" class="btn btn-outline">
+          {{ t.products.details }}
+        </RouterLink>
+        <a class="btn btn-primary" :href="whatsappUrl" target="_blank" rel="noopener">
+          {{ t.products.enquire }}
+        </a>
+      </div>
+    </div>
+  </article>
+</template>
+'@ | Set-Content -Path 'src/components/ProductCard.vue' -Encoding UTF8
+
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent 'src/components/SiteFooter.vue') | Out-Null
+@'
+<script setup>
+import { inject } from "vue"
+import { RouterLink } from "vue-router"
+import { company } from "../data/company"
+import { categories } from "../data/categories"
+
+const { language, t } = inject("siteI18n")
+</script>
+
+<template>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="/images/logo.jpg" alt="Mother Soil Equipments" />
+        <p>{{ company.name }}</p>
+        <p>{{ company.address }}</p>
+      </div>
+
+      <div>
+        <h3>{{ t.footer.quickLinks }}</h3>
+        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/products">{{ t.nav.products }}</RouterLink>
+        <RouterLink to="/subsidy">{{ t.nav.subsidy }}</RouterLink>
+        <RouterLink to="/about">{{ t.nav.about }}</RouterLink>
+        <RouterLink to="/contact">{{ t.nav.contact }}</RouterLink>
+      </div>
+
+      <div>
+        <h3>{{ t.footer.categories }}</h3>
+        <RouterLink v-for="category in categories" :key="category.id" :to="`/products/category/${category.id}`">
+          {{ category.name[language] }}
+        </RouterLink>
+      </div>
+
+      <div>
+        <h3>{{ t.footer.follow }}</h3>
+        <div class="social-links">
+          <a v-if="company.social.instagram" :href="company.social.instagram" target="_blank" rel="noopener">Instagram</a>
+          <a v-if="company.social.facebook" :href="company.social.facebook" target="_blank" rel="noopener">Facebook</a>
+          <a v-if="company.social.youtube" :href="company.social.youtube" target="_blank" rel="noopener">YouTube</a>
+        </div>
+        <a :href="`tel:${company.phones[0]}`">{{ company.phones[0] }}</a>
+        <a :href="`mailto:${company.email}`">{{ company.email }}</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">© {{ new Date().getFullYear() }} {{ company.name }}. {{ t.footer.rights }}</div>
+    </div>
+  </footer>
+</template>
+'@ | Set-Content -Path 'src/components/SiteFooter.vue' -Encoding UTF8
+
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent 'src/views/Home.vue') | Out-Null
+@'
+<script setup>
+import { inject } from "vue"
+import { RouterLink } from "vue-router"
+import CategoryCarousel from "../components/CategoryCarousel.vue"
+import VideoCarousel from "../components/VideoCarousel.vue"
+import ProductCard from "../components/ProductCard.vue"
+import { subsidyProducts } from "../data/products"
+import { company } from "../data/company"
+
+const { language, t } = inject("siteI18n")
+</script>
+
+<template>
+  <div>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="hero-eyebrow">{{ t.hero.eyebrow }}</span>
+          <h1>{{ t.hero.title }}</h1>
+          <p>{{ t.hero.text }}</p>
+          <div class="hero-actions">
+            <RouterLink to="/products" class="btn btn-primary btn-large">{{ t.hero.products }}</RouterLink>
+            <RouterLink to="/contact" class="btn btn-light btn-large">{{ t.hero.contact }}</RouterLink>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <img src="/images/logo.jpg" alt="Mother Soil Equipments" />
+        </div>
+      </div>
+    </section>
+
+    <CategoryCarousel />
+    <VideoCarousel />
+
+    <section class="section subsidy-home">
+      <div class="container">
+        <div class="subsidy-banner">
+          <div>
+            <span class="eyebrow">🌱 {{ t.subsidy.badge }}</span>
+            <h2>{{ t.subsidy.title }}</h2>
+            <p>{{ t.subsidy.text }}</p>
+            <small>{{ t.subsidy.note }}</small>
+          </div>
+          <RouterLink to="/subsidy" class="btn btn-primary">{{ t.subsidy.view }} →</RouterLink>
+        </div>
+
+        <div v-if="subsidyProducts.length" class="product-grid compact-grid">
+          <ProductCard v-for="product in subsidyProducts.slice(0, 4)" :key="product.id" :product="product" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-heading centered">
+          <span class="eyebrow">Mother Soil</span>
+          <h2>{{ t.why.title }}</h2>
+        </div>
+        <div class="feature-grid">
+          <div class="feature-card"><span>✓</span><h3>{{ t.why.quality }}</h3></div>
+          <div class="feature-card"><span>✓</span><h3>{{ t.why.range }}</h3></div>
+          <div class="feature-card"><span>✓</span><h3>{{ t.why.guidance }}</h3></div>
+          <div class="feature-card"><span>✓</span><h3>{{ t.why.support }}</h3></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about-preview">
+      <div class="container split-section">
+        <div class="placeholder-photo"><img src="/images/logo.jpg" alt="Mother Soil Equipments" /></div>
+        <div>
+          <span class="eyebrow">{{ company.name }}</span>
+          <h2>{{ t.about.title }}</h2>
+          <p>{{ t.about.text }}</p>
+          <RouterLink to="/about" class="text-link">{{ t.about.more }} →</RouterLink>
+        </div>
+      </div>
+    </section>
+
+    <section class="section faq-section">
+      <div class="container narrow">
+        <div class="section-heading centered"><h2>{{ t.faq.title }}</h2></div>
+        <details><summary>{{ t.faq.q1 }}</summary><p>{{ t.faq.a1 }}</p></details>
+        <details><summary>{{ t.faq.q2 }}</summary><p>{{ t.faq.a2 }}</p></details>
+        <details><summary>{{ t.faq.q3 }}</summary><p>{{ t.faq.a3 }}</p></details>
+        <details><summary>{{ t.faq.q4 }}</summary><p>{{ t.faq.a4 }}</p></details>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container cta-inner">
+        <div><span class="eyebrow">Mother Soil Equipments</span><h2>{{ t.contact.title }}</h2><p>{{ t.contact.text }}</p></div>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-large" href="https://wa.me/918838894126" target="_blank" rel="noopener">{{ t.contact.whatsapp }}</a>
+          <a class="btn btn-light btn-large" :href="`tel:${company.phones[0]}`">{{ t.contact.call }}</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
+'@ | Set-Content -Path 'src/views/Home.vue' -Encoding UTF8
+
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent 'src/views/Products.vue') | Out-Null
+@'
+<script setup>
+import { computed, inject, ref } from "vue"
+import { useRoute } from "vue-router"
+import { categories } from "../data/categories"
+import { products } from "../data/products"
+import ProductCard from "../components/ProductCard.vue"
+
+const route = useRoute()
+const { language, t } = inject("siteI18n")
+const search = ref("")
+
+const selectedCategoryId = computed(() => route.params.categoryId || "")
+const selectedCategory = computed(() => categories.find((c) => c.id === selectedCategoryId.value))
+
+const visibleProducts = computed(() => {
+  const query = search.value.trim().toLowerCase()
+  return products.filter((product) => {
+    const categoryMatch = !selectedCategoryId.value || product.categoryId === selectedCategoryId.value
+    if (!categoryMatch) return false
+    if (!query) return true
+    const category = categories.find((c) => c.id === product.categoryId)
+    return [product.name.en, product.name.ta, product.description.en, product.description.ta, category?.name.en, category?.name.ta]
+      .filter(Boolean)
+      .some((value) => value.toLowerCase().includes(query))
+  })
+})
+</script>
+
+<template>
+  <div>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">Mother Soil Equipments</span>
+        <h1>{{ selectedCategory ? selectedCategory.name[language] : t.products.title }}</h1>
+        <p>{{ selectedCategory?.description[language] || t.products.subtitle }}</p>
+      </div>
+    </section>
+
+    <section class="section products-page">
+      <div class="container">
+        <div class="search-wrap">
+          <input v-model="search" type="search" :placeholder="t.products.search" />
+        </div>
+
+        <div class="category-selector">
+          <RouterLink to="/products" :class="{ selected: !selectedCategoryId }">{{ t.products.all }}</RouterLink>
+          <RouterLink
+            v-for="category in categories"
+            :key="category.id"
+            :to="`/products/category/${category.id}`"
+            :class="{ selected: selectedCategoryId === category.id }"
+          >
+            {{ category.name[language] }}
+          </RouterLink>
+        </div>
+
+        <div class="results-heading">
+          <h2>{{ selectedCategory ? selectedCategory.name[language] : t.products.title }}</h2>
+          <span>{{ visibleProducts.length }} {{ t.products.results }}</span>
+        </div>
+
+        <div v-if="visibleProducts.length" class="product-grid">
+          <ProductCard v-for="product in visibleProducts" :key="product.id" :product="product" />
+        </div>
+
+        <div v-else class="empty-state">
+          <h3>{{ t.products.noResults }}</h3>
+          <button class="btn btn-primary" @click="search = ''''">{{ t.products.clear }}</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
+'@ | Set-Content -Path 'src/views/Products.vue' -Encoding UTF8
+
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent 'src/views/ProductDetails.vue') | Out-Null
+@'
+<script setup>
+import { computed, inject } from "vue"
+import { RouterLink, useRoute } from "vue-router"
+import { products } from "../data/products"
+import { categories } from "../data/categories"
+import ProductCard from "../components/ProductCard.vue"
+import { company } from "../data/company"
+
+const route = useRoute()
+const { language, t } = inject("siteI18n")
+const product = computed(() => products.find((p) => p.id === route.params.productId && p.categoryId === route.params.categoryId))
+const category = computed(() => categories.find((c) => c.id === route.params.categoryId))
+const related = computed(() => products.filter((p) => p.categoryId === route.params.categoryId && p.id !== product.value?.id).slice(0, 4))
+
+const whatsappUrl = computed(() => {
+  const name = product.value?.name?.[language] || product.value?.name?.en || "product"
+  return `https://wa.me/918838894126?text=${encodeURIComponent(`Hello Mother Soil Equipments, I am interested in ${name}.`)}`
+})
+</script>
+
+<template>
+  <div v-if="product">
+    <section class="breadcrumb-bar">
+      <div class="container">
+        <RouterLink to="/">Home</RouterLink> / <RouterLink to="/products">{{ t.products.title }}</RouterLink> /
+        <RouterLink :to="`/products/category/${category.id}`">{{ category.name[language] }}</RouterLink> /
+        {{ product.name[language] }}
+      </div>
+    </section>
+
+    <section class="section product-detail">
+      <div class="container product-detail-grid">
+        <div class="detail-image"><img :src="product.image" :alt="product.name[language]" /></div>
+        <div class="detail-copy">
+          <span class="eyebrow">{{ category.name[language] }}</span>
+          <h1>{{ product.name[language] }}</h1>
+          <p>{{ product.description[language] }}</p>
+          <div v-if="product.subsidy?.applicable" class="subsidy-tag">🌱 {{ t.subsidy.badge }}</div>
+          <div class="detail-actions">
+            <a class="btn btn-primary btn-large" :href="whatsappUrl" target="_blank" rel="noopener">{{ t.contact.whatsapp }}</a>
+            <RouterLink to="/contact" class="btn btn-outline btn-large">{{ t.products.enquire }}</RouterLink>
+          </div>
+          <div class="help-box">
+            <strong>{{ t.contact.title }}</strong>
+            <a :href="`tel:${company.phones[0]}`">{{ company.phones[0] }}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section v-if="related.length" class="section related-section">
+      <div class="container">
+        <div class="section-heading"><h2>{{ t.products.related }}</h2></div>
+        <div class="product-grid">
+          <ProductCard v-for="item in related" :key="item.id" :product="item" />
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section v-else class="section empty-state">
+    <div class="container"><h2>{{ t.products.noResults }}</h2><RouterLink to="/products" class="btn btn-primary">{{ t.products.viewAll }}</RouterLink></div>
+  </section>
+</template>
+'@ | Set-Content -Path 'src/views/ProductDetails.vue' -Encoding UTF8
+
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent 'src/views/Subsidy.vue') | Out-Null
+@'
+<script setup>
+import { computed, inject, ref } from "vue"
+import { RouterLink } from "vue-router"
+import { categories } from "../data/categories"
+import { subsidyProducts } from "../data/products"
+import ProductCard from "../components/ProductCard.vue"
+import { company } from "../data/company"
+
+const { language, t } = inject("siteI18n")
+const selected = ref("")
+const filtered = computed(() => selected.value ? subsidyProducts.filter((p) => p.categoryId === selected.value) : subsidyProducts)
+
+const whatsappUrl = `https://wa.me/918838894126?text=${encodeURIComponent("Hello Mother Soil Equipments, I would like to know about subsidy-supported agricultural machinery.")}`
+</script>
+
+<template>
+  <div>
+    <section class="page-hero subsidy-hero">
+      <div class="container">
+        <span class="eyebrow">🌱 {{ t.nav.subsidy }}</span>
+        <h1>{{ t.subsidy.title }}</h1>
+        <p>{{ t.subsidy.text }}</p>
+        <small>{{ t.subsidy.note }}</small>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="category-selector">
+          <button :class="{ selected: !selected }" @click="selected = ''''">{{ t.products.all }}</button>
+          <button v-for="category in categories" :key="category.id" :class="{ selected: selected === category.id }" @click="selected = category.id">
+            {{ category.name[language] }}
+          </button>
+        </div>
+
+        <div v-if="filtered.length" class="product-grid">
+          <ProductCard v-for="product in filtered" :key="product.id" :product="product" />
+        </div>
+        <div v-else class="empty-state">
+          <h3>{{ t.subsidy.details }}</h3>
+          <p>{{ t.subsidy.note }}</p>
+        </div>
+
+        <div class="subsidy-info-card">
+          <div>
+            <h2>{{ t.subsidy.details }}</h2>
+            <p>{{ t.subsidy.note }}</p>
+          </div>
+          <a class="btn btn-primary" :href="whatsappUrl" target="_blank" rel="noopener">{{ t.subsidy.enquiry }}</a>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
+'@ | Set-Content -Path 'src/views/Subsidy.vue' -Encoding UTF8
+
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent 'src/views/About.vue') | Out-Null
+@'
+<script setup>
+import { inject } from "vue"
+import { company } from "../data/company"
+
+const { t } = inject("siteI18n")
+</script>
+
+<template>
+  <section class="page-hero"><div class="container"><span class="eyebrow">{{ company.name }}</span><h1>{{ t.about.title }}</h1><p>{{ t.about.text }}</p></div></section>
+  <section class="section"><div class="container split-section"><div class="placeholder-photo"><img src="/images/logo.jpg" alt="Mother Soil Equipments" /></div><div><h2>{{ company.name }}</h2><p>{{ t.about.text }}</p><p>{{ company.address }}</p></div></div></section>
+</template>
+'@ | Set-Content -Path 'src/views/About.vue' -Encoding UTF8
+
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent 'src/views/Contact.vue') | Out-Null
+@'
+<script setup>
+import { inject, ref } from "vue"
+import { company } from "../data/company"
+
+const { t } = inject("siteI18n")
+const sent = ref(false)
+const form = ref({ name: "", phone: "", message: "" })
+
+function submit() {
+  sent.value = true
+}
+</script>
+
+<template>
+  <section class="page-hero"><div class="container"><span class="eyebrow">{{ company.name }}</span><h1>{{ t.nav.contact }}</h1><p>{{ t.contact.text }}</p></div></section>
+
+  <section class="section">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <h2>{{ company.name }}</h2>
+        <p>{{ company.address }}</p>
+        <a v-for="phone in company.phones" :key="phone" :href="`tel:${phone}`">{{ phone }}</a>
+        <a :href="`mailto:${company.email}`">{{ company.email }}</a>
+        <a class="btn btn-primary" href="https://wa.me/918838894126" target="_blank" rel="noopener">{{ t.contact.whatsapp }}</a>
+      </div>
+
+      <form class="contact-form" @submit.prevent="submit">
+        <h2>{{ t.contact.formTitle }}</h2>
+        <label>{{ t.contact.name }}<input v-model="form.name" required /></label>
+        <label>{{ t.contact.phone }}<input v-model="form.phone" required /></label>
+        <label>{{ t.contact.message }}<textarea v-model="form.message" rows="5" required></textarea></label>
+        <button class="btn btn-primary" type="submit">{{ t.contact.send }}</button>
+        <p v-if="sent" class="success-message">{{ t.contact.success }}</p>
+      </form>
+    </div>
+  </section>
+</template>
+'@ | Set-Content -Path 'src/views/Contact.vue' -Encoding UTF8
+
+New-Item -ItemType Directory -Force -Path (Split-Path -Parent 'src/assets/styles/main.css') | Out-Null
+@'
+@import url(''https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap'');
+
+:root {
+  --green-900: #163b25;
+  --green-800: #1d542f;
+  --green-700: #26713e;
+  --green-600: #32864a;
+  --green-100: #eaf4ec;
+  --earth: #9a7145;
+  --cream: #f7f5ee;
+  --white: #fff;
+  --text: #1c261f;
+  --muted: #667269;
+  --border: #e3e9e3;
+  --shadow: 0 12px 35px rgba(20, 55, 31, .08);
+  --radius: 18px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: var(--text); background: var(--white); font-family: Inter, "Noto Sans Tamil", sans-serif; line-height: 1.6; }
+a { color: inherit; text-decoration: none; }
+button, input, textarea { font: inherit; }
+button { cursor: pointer; }
+img { max-width: 100%; display: block; }
+.container { width: min(1180px, calc(100% - 32px)); margin: 0 auto; }
+.narrow { max-width: 850px; }
+.section { padding: 72px 0; }
+.eyebrow { display: block; margin-bottom: 8px; color: var(--green-700); font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 28px; }
+.section-heading.centered { display: block; text-align: center; }
+.section-heading h2, .page-hero h1 { margin: 0; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; }
+.section-heading p { margin: 10px 0 0; color: var(--muted); }
+
+.site-header { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,.96); border-bottom: 1px solid var(--border); backdrop-filter: blur(10px); }
+.nav-inner { min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.brand img { width: 160px; height: 58px; object-fit: contain; }
+.main-nav { display: flex; align-items: center; gap: 26px; font-size: .95rem; font-weight: 600; }
+.main-nav a:hover, .main-nav a.router-link-active { color: var(--green-700); }
+.subsidy-link { color: var(--green-700); }
+.language-switcher { display: flex; padding: 3px; border: 1px solid var(--border); border-radius: 999px; }
+.language-switcher button { border: 0; background: transparent; border-radius: 999px; padding: 5px 9px; color: var(--muted); }
+.language-switcher button.active { background: var(--green-700); color: white; }
+.menu-toggle { display: none; border: 0; background: transparent; padding: 8px; }
+.menu-toggle span { display: block; width: 24px; height: 2px; margin: 5px; background: var(--green-900); }
+
+.hero { background: linear-gradient(120deg, var(--green-900), var(--green-700)); color: white; padding: 76px 0; overflow: hidden; }
+.hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 48px; }
+.hero h1 { margin: 0 0 18px; max-width: 700px; font-size: clamp(2.5rem, 6vw, 4.8rem); line-height: 1.02; }
+.hero p { max-width: 650px; color: rgba(255,255,255,.82); font-size: 1.08rem; }
+.hero-eyebrow { display: inline-block; margin-bottom: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.hero-visual { min-height: 360px; border-radius: 28px; background: rgba(255,255,255,.12); display: grid; place-items: center; padding: 32px; }
+.hero-visual img { width: 100%; height: 360px; object-fit: contain; border-radius: 20px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+.btn { display: inline-flex; justify-content: center; align-items: center; min-height: 44px; padding: 10px 18px; border-radius: 10px; border: 1px solid transparent; font-weight: 700; transition: .2s ease; }
+.btn:hover { transform: translateY(-1px); }
+.btn-primary { background: var(--green-700); color: white; }
+.btn-primary:hover { background: var(--green-800); }
+.btn-light { background: white; color: var(--green-800); }
+.btn-outline { background: white; color: var(--green-700); border-color: var(--green-700); }
+.btn-large { min-height: 50px; padding: 12px 22px; }
+
+.carousel-controls { display: flex; gap: 8px; }
+.carousel-controls button { width: 42px; height: 42px; border: 1px solid var(--border); background: white; border-radius: 50%; color: var(--green-800); }
+.horizontal-track { display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 4px 2px 18px; }
+.horizontal-track::-webkit-scrollbar { display: none; }
+.category-card { flex: 0 0 260px; scroll-snap-align: start; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); background: white; box-shadow: var(--shadow); transition: .25s ease; }
+.category-card:hover { transform: translateY(-5px); border-color: #b7d2bd; }
+.category-image { aspect-ratio: 1.2; background: var(--cream); display: grid; place-items: center; padding: 20px; }
+.category-image img { width: 100%; height: 100%; object-fit: contain; }
+.category-content { padding: 18px; }
+.category-content h3 { margin: 2px 0 7px; font-size: 1.2rem; }
+.category-content p { min-height: 50px; margin: 0 0 12px; color: var(--muted); font-size: .9rem; }
+.text-link { color: var(--green-700); font-weight: 800; }
+
+.videos-section { background: var(--cream); }
+.video-card { flex: 0 0 340px; scroll-snap-align: start; overflow: hidden; background: white; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
+.video-thumb { position: relative; aspect-ratio: 16/9; background: #dfe8df; overflow: hidden; }
+.video-thumb img { width: 100%; height: 100%; object-fit: cover; }
+.play-button { position: absolute; inset: 50% auto auto 50%; transform: translate(-50%, -50%); width: 58px; height: 58px; display: grid; place-items: center; border-radius: 50%; background: rgba(22,59,37,.9); color: white; }
+.video-card-body { padding: 18px; }
+.video-card-body h3 { margin: 0 0 10px; }
+
+.subsidy-home { background: #f3f7f1; }
+.subsidy-banner { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding: 34px; margin-bottom: 30px; border: 1px solid #d9e7d8; border-radius: 24px; background: white; box-shadow: var(--shadow); }
+.subsidy-banner h2 { margin: 0 0 8px; }
+.subsidy-banner p { max-width: 750px; margin: 0 0 8px; color: var(--muted); }
+.subsidy-banner small { color: var(--muted); }
+
+.product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.compact-grid { margin-top: 20px; }
+.product-card { overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); background: white; box-shadow: var(--shadow); }
+.product-image { display: block; aspect-ratio: 1/1; background: var(--cream); padding: 18px; }
+.product-image img { width: 100%; height: 100%; object-fit: contain; }
+.product-body { padding: 18px; }
+.product-body h3 { margin: 3px 0 7px; font-size: 1.08rem; }
+.product-body p { min-height: 48px; margin: 0 0 15px; color: var(--muted); font-size: .9rem; }
+.product-actions { display: flex; gap: 8px; }
+.product-actions .btn { flex: 1; font-size: .82rem; padding-inline: 8px; }
+
+.feature-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.feature-card { padding: 28px 20px; text-align: center; border: 1px solid var(--border); border-radius: var(--radius); background: white; }
+.feature-card span { display: grid; place-items: center; width: 42px; height: 42px; margin: 0 auto 12px; border-radius: 50%; background: var(--green-100); color: var(--green-700); font-weight: 900; }
+.feature-card h3 { margin: 0; font-size: 1rem; }
+
+.about-preview { background: var(--cream); }
+.split-section { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 55px; }
+.placeholder-photo { min-height: 350px; display: grid; place-items: center; padding: 30px; border-radius: 24px; background: white; border: 1px solid var(--border); }
+.placeholder-photo img { max-height: 300px; object-fit: contain; }
+.split-section h2 { margin-top: 0; font-size: clamp(2rem, 4vw, 3rem); }
+.split-section p { color: var(--muted); }
+
+.faq-section details { border-bottom: 1px solid var(--border); padding: 18px 0; }
+.faq-section summary { cursor: pointer; font-weight: 700; }
+.faq-section details p { color: var(--muted); }
+
+.cta-section { padding: 60px 0; background: var(--green-900); color: white; }
+.cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+.cta-inner h2 { margin: 0; font-size: clamp(2rem, 4vw, 3rem); }
+.cta-inner p { margin: 8px 0 0; color: rgba(255,255,255,.75); }
+
+.page-hero { padding: 70px 0; background: var(--cream); border-bottom: 1px solid var(--border); }
+.page-hero p { max-width: 720px; color: var(--muted); margin-bottom: 0; }
+.breadcrumb-bar { padding: 18px 0; border-bottom: 1px solid var(--border); color: var(--muted); font-size: .9rem; }
+.breadcrumb-bar a { color: var(--green-700); }
+
+.search-wrap input { width: 100%; height: 54px; padding: 0 18px; border: 1px solid var(--border); border-radius: 12px; outline: none; }
+.search-wrap input:focus { border-color: var(--green-600); box-shadow: 0 0 0 3px rgba(50,134,74,.1); }
+.category-selector { display: flex; gap: 10px; overflow-x: auto; scrollbar-width: none; padding: 18px 0 28px; }
+.category-selector::-webkit-scrollbar { display: none; }
+.category-selector a, .category-selector button { flex: 0 0 auto; border: 1px solid var(--border); background: white; color: var(--text); border-radius: 999px; padding: 9px 15px; font-weight: 600; }
+.category-selector a.selected, .category-selector button.selected { background: var(--green-700); border-color: var(--green-700); color: white; }
+.results-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; margin: 5px 0 22px; }
+.results-heading h2 { margin: 0; }
+.results-heading span { color: var(--muted); }
+.empty-state { padding: 50px 20px; text-align: center; color: var(--muted); }
+
+.product-detail-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 55px; align-items: start; }
+.detail-image { aspect-ratio: 1/1; padding: 40px; border-radius: 24px; background: var(--cream); }
+.detail-image img { width: 100%; height: 100%; object-fit: contain; }
+.detail-copy h1 { margin: 0 0 15px; font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.05; }
+.detail-copy p { color: var(--muted); font-size: 1.05rem; }
+.detail-actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0; }
+.subsidy-tag { display: inline-flex; margin-top: 12px; padding: 7px 11px; border-radius: 999px; background: #e9f4e7; color: var(--green-800); font-weight: 800; }
+.help-box { padding: 18px; border-left: 4px solid var(--green-700); background: var(--cream); display: flex; flex-direction: column; gap: 3px; }
+.help-box a { color: var(--green-700); font-weight: 700; }
+.subsidy-info-card { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 45px; padding: 28px; border-radius: 20px; background: var(--green-900); color: white; }
+.subsidy-info-card p { color: rgba(255,255,255,.75); }
+
+.contact-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 50px; }
+.contact-info { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+.contact-info h2 { margin-top: 0; }
+.contact-info a:not(.btn) { color: var(--green-700); font-weight: 600; }
+.contact-form { padding: 30px; border: 1px solid var(--border); border-radius: 20px; box-shadow: var(--shadow); }
+.contact-form h2 { margin-top: 0; }
+.contact-form label { display: block; margin: 14px 0; font-weight: 600; }
+.contact-form input, .contact-form textarea { width: 100%; margin-top: 7px; padding: 12px 13px; border: 1px solid var(--border); border-radius: 10px; resize: vertical; }
+.success-message { color: var(--green-700); font-weight: 700; }
+
+.site-footer { background: #112c1c; color: rgba(255,255,255,.78); }
+.footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1.2fr 1fr; gap: 35px; padding: 55px 0; }
+.footer-brand img { width: 155px; height: 60px; object-fit: contain; background: white; border-radius: 8px; padding: 4px; }
+.footer-brand p { max-width: 290px; }
+.site-footer h3 { margin-top: 0; color: white; font-size: 1rem; }
+.site-footer a { display: block; margin: 7px 0; }
+.site-footer a:hover { color: white; }
+.social-links { display: flex; flex-wrap: wrap; gap: 12px; }
+.social-links a { display: inline-block; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding: 18px 0; font-size: .85rem; }
+
+@media (max-width: 960px) {
+  .main-nav { gap: 15px; }
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .feature-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 760px) {
+  .container { width: min(100% - 24px, 680px); }
+  .section { padding: 52px 0; }
+  .nav-inner { min-height: 68px; }
+  .brand img { width: 140px; height: 52px; }
+  .menu-toggle { display: block; }
+  .main-nav { display: none; position: absolute; top: 68px; left: 0; right: 0; padding: 15px 18px 20px; background: white; border-bottom: 1px solid var(--border); box-shadow: var(--shadow); flex-direction: column; align-items: stretch; }
+  .main-nav.open { display: flex; }
+  .language-switcher { align-self: flex-start; }
+  .hero { padding: 55px 0; }
+  .hero-grid, .split-section, .product-detail-grid, .contact-grid { grid-template-columns: 1fr; }
+  .hero-visual { min-height: 250px; }
+  .hero-visual img { height: 250px; }
+  .section-heading, .cta-inner, .subsidy-banner, .subsidy-info-card { align-items: flex-start; flex-direction: column; }
+  .section-heading { align-items: flex-start; }
+  .category-card { flex-basis: 78vw; }
+  .video-card { flex-basis: 86vw; }
+  .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .product-body { padding: 13px; }
+  .product-body p { min-height: 0; }
+  .product-actions { flex-direction: column; }
+  .feature-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 25px; }
+}
+
+@media (max-width: 430px) {
+  .product-grid { grid-template-columns: 1fr 1fr; }
+  .product-actions .btn { width: 100%; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .subsidy-banner, .subsidy-info-card { padding: 24px; }
+}
+'@ | Set-Content -Path 'src/assets/styles/main.css' -Encoding UTF8
+
+Write-Host ''
+Write-Host 'Mother Soil source files updated successfully.' -ForegroundColor Green
+Write-Host 'Note: package.json, index.html, public/images and existing dependencies were not changed.'
+Write-Host 'Run: npm run dev'
