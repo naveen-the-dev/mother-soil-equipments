@@ -6,7 +6,8 @@ import SiteFooter from "./components/SiteFooter.vue"
 import en from "./locales/en"
 import ta from "./locales/ta"
 
-const language = ref(localStorage.getItem("mse-language") || "en")
+const language = ref( "en")
+// const language = ref(localStorage.getItem("mse-language") || "en")
 const dictionaries = { en, ta }
 const t = computed(() => dictionaries[language.value] || en)
 
