@@ -1,26 +1,42 @@
-export const videos = [
+﻿import { reactive } from "vue"
+
+const initialVideos = [
   {
-    id: "youtube-1", title: "Agricultural Equipment Demo", tamil: "விவசாய உபகரணங்கள் செயல்விளக்கம்",
+    id: "youtube-1",
+    title: "Agricultural Equipment Demo",
+    tamil: "à®µà®¿à®µà®šà®¾à®¯ à®‰à®ªà®•à®°à®£à®™à¯à®•à®³à¯ à®šà¯†à®¯à®²à¯à®µà®¿à®³à®•à¯à®•à®®à¯",
     description: "Watch an agricultural equipment demonstration.",
-    tamilDescription: "விவசாய உபகரணங்களின் செயல்விளக்கத்தைப் பாருங்கள்.",
-    youtubeId: "DveckJ42NP8", url: "https://youtu.be/DveckJ42NP8",
+    tamilDescription: "à®µà®¿à®µà®šà®¾à®¯ à®‰à®ªà®•à®°à®£à®™à¯à®•à®³à®¿à®©à¯ à®šà¯†à®¯à®²à¯à®µà®¿à®³à®•à¯à®•à®¤à¯à®¤à¯ˆà®ªà¯ à®ªà®¾à®°à¯à®™à¯à®•à®³à¯",
+    youtubeId: "DveckJ42NP8",
+    url: "https://youtu.be/DveckJ42NP8",
   },
   {
-    id: "youtube-2", title: "Agricultural Machinery", tamil: "விவசாய இயந்திரங்கள்",
+    id: "youtube-2",
+    title: "Agricultural Machinery",
+    tamil: "à®µà®¿à®µà®šà®¾à®¯ à®‡à®¯à®¨à¯à®¤à®¿à®°à®™à¯à®•à®³à¯",
     description: "Explore agricultural machinery in action.",
-    tamilDescription: "விவசாய இயந்திரங்கள் செயல்படும் விதத்தைப் பாருங்கள்.",
-    youtubeId: "NVhGuiXh4uo", url: "https://youtu.be/NVhGuiXh4uo",
+    tamilDescription: "à®µà®¿à®µà®šà®¾à®¯ à®‡à®¯à®¨à¯à®¤à®¿à®°à®™à¯à®•à®³à¯ à®šà¯†à®¯à®²à¯à®ªà®Ÿà¯à®®à¯ à®µà®¿à®¤à®¤à¯à®¤à¯ˆà®ªà¯ à®ªà®¾à®°à¯à®™à¯à®•à®³à¯",
+    youtubeId: "NVhGuiXh4uo",
+    url: "https://youtu.be/NVhGuiXh4uo",
   },
   {
-    id: "youtube-3", title: "Farm Equipment", tamil: "விவசாய உபகரணங்கள்",
+    id: "youtube-3",
+    title: "Farm Equipment",
+    tamil: "à®µà®¿à®µà®šà®¾à®¯ à®‰à®ªà®•à®°à®£à®™à¯à®•à®³à¯",
     description: "See practical equipment used for farm work.",
-    tamilDescription: "விவசாய பணிகளில் பயன்படுத்தப்படும் நடைமுறை உபகரணங்களைப் பாருங்கள்.",
-    youtubeId: "Ii4CmwnMi8o", url: "https://youtu.be/Ii4CmwnMi8o",
+    tamilDescription: "à®µà®¿à®µà®šà®¾à®¯ à®ªà®£à®¿à®•à®³à®¿à®²à¯ à®ªà®¯à®©à¯à®ªà®Ÿà¯à®¤à¯à®¤à®ªà¯à®ªà®Ÿà¯à®®à¯ à®¨à®Ÿà¯ˆà®®à¯à®±à¯ˆ à®‰à®ªà®•à®°à®£à®™à¯ˆà®ªà¯ à®ªà®¾à®°à¯à®™à¯à®•à®³à¯",
+    youtubeId: "Ii4CmwnMi8o",
+    url: "https://youtu.be/Ii4CmwnMi8o",
   },
   {
-    id: "youtube-4", title: "Agricultural Machinery Demo", tamil: "விவசாய இயந்திர செயல்விளக்கம்",
+    id: "youtube-4",
+    title: "Agricultural Machinery Demo",
+    tamil: "à®µà®¿à®µà®šà®¾à®¯ à®‡à®¯à®¨à¯à®¤à®¿à®° à®šà¯†à®¯à®²à¯à®µà®¿à®³à®•à¯à®•à®®à¯",
     description: "Watch another agricultural machinery demonstration.",
-    tamilDescription: "மற்றொரு விவசாய இயந்திர செயல்விளக்கத்தைப் பாருங்கள்.",
-    youtubeId: "LkmRBgGMPu8", url: "https://youtu.be/LkmRBgGMPu8",
+    tamilDescription: "à®®à®±à¯à®±à¯Šà®°à¯ à®µà®¿à®µà®šà®¾à®¯ à®‡à®¯à®¨à¯à®¤à®¿à®° à®šà¯†à®¯à®²à¯à®µà®¿à®³à®•à¯à®•à®¤à¯à®¤à¯ˆà®ªà¯ à®ªà®¾à®°à¯à®™à¯à®•à®³à¯",
+    youtubeId: "LkmRBgGMPu8",
+    url: "https://youtu.be/LkmRBgGMPu8",
   },
 ]
+
+export const videos = reactive(initialVideos)

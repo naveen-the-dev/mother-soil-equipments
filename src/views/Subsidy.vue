@@ -33,7 +33,7 @@ const whatsapp = computed(() =>
           <div>
             <h2>{{ t.subsidy.details }}</h2>
             <p>{{ t.subsidy.note }}</p>
-            <p>Government schemes, eligibility, approved machinery and subsidy amounts can change. Please verify the current scheme and eligibility with the relevant government department before making a purchase decision.</p>
+            <p>{{ t.subsidy.disclaimer }}</p>
           </div>
           <a class="btn btn-primary" :href="whatsapp" target="_blank" rel="noopener">{{ t.subsidy.enquiry }}</a>
         </div>
@@ -56,8 +56,8 @@ const whatsapp = computed(() =>
         </div>
 
         <div v-else class="empty-panel">
-          <h3>No subsidy-supported products have been published yet.</h3>
-          <p>Add applicable products in <code>src/data/products.js</code> when their subsidy information is confirmed.</p>
+          <h3>{{ t.subsidy.emptyTitle }}</h3>
+          <p>{{ t.subsidy.emptyText }}</p>
         </div>
       </div>
     </section>

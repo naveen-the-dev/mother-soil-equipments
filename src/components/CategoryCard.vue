@@ -8,20 +8,24 @@ const props = defineProps({
 })
 const { language, t } = inject("siteI18n")
 const title = computed(() => language.value === "ta" ? props.category.tamil : props.category.name)
-const description = computed(() => language.value === "ta" ? props.category.tamil : props.category.description)
+const description = computed(() =>
+  language.value === "ta"
+    ? props.category.tamilDescription || props.category.description
+    : props.category.description
+)
 </script>
 
 <template>
   <RouterLink :to="`/products/category/${category.id}`" class="category-card">
     <div class="category-image">
       <img :src="category.image || '/images/logo.jpg'" :alt="title" />
-      <span class="category-icon">{{ category.icon }}</span>
+      <!-- <span class="category-icon">{{ category.icon }}</span> -->
       <span class="category-count">{{ count }} {{ t.products.results }}</span>
     </div>
     <div class="category-card-content">
       <h3>{{ title }}</h3>
       <p>{{ description }}</p>
-      <span class="category-link">{{ t.categories.view }} <b>→</b></span>
+      <span class="category-link">{{ t.categories.view }} <b>{{ t.common.arrow }}</b></span>
     </div>
   </RouterLink>
 </template>

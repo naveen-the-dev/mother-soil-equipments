@@ -7,7 +7,7 @@ const form = ref({ name: "", phone: "", message: "" })
 const sent = ref(false)
 
 const whatsappUrl = computed(() => {
-  const message = `Hello Mother Soil Equipments,
+  const message = `${t.value.messages.whatsappForm},
 Name: ${form.value.name || "-"}
 Phone: ${form.value.phone || "-"}
 Message: ${form.value.message || "-"}`
@@ -50,7 +50,7 @@ function submit() {
               <span>{{ company.email }}</span>
             </a>
             <div>
-              <strong>Address</strong>
+              <strong>{{ t.contact.address }}</strong>
               <span>{{ company.address }}</span>
             </div>
           </div>

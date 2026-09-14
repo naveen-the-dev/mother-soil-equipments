@@ -1,0 +1,55 @@
+export default {
+  nav: { home: "Home", products: "Products", subsidy: "Subsidy", about: "About Us", contact: "Contact" },
+  hero: {
+    eyebrow: "MOTHER SOIL EQUIPMENTS",
+    title: "Agricultural Equipment for Better Farming",
+    text: "Explore practical agricultural equipment for farmers and professional use.",
+    products: "Explore Products", contact: "Contact Us",
+  },
+  categories: { title: "Explore Our Categories", view: "View Products" },
+  videos: {
+    title: "Agricultural Videos",
+    text: "See agricultural equipment in action and learn about practical applications.",
+    watch: "Watch Video",
+  },
+  subsidy: {
+    title: "Subsidy-Supported Machinery",
+    text: "Explore agricultural machinery that may be covered under applicable government subsidy schemes.",
+    badge: "Subsidy", view: "View Subsidy Machinery", details: "Subsidy Details",
+    note: "Subsidy availability, eligibility and amount depend on the applicable government scheme.",
+    enquiry: "Enquire About Subsidy",
+  },
+  products: {
+    title: "Our Products", subtitle: "Agricultural equipment for different farming needs",
+    search: "Search products...", all: "All", results: "Products",
+    noResults: "No products found.", clear: "Clear Search", details: "View Details",
+    enquire: "Enquire", related: "Related Products", category: "Category", viewAll: "View All",
+  },
+  why: {
+    title: "Why Mother Soil", quality: "Quality Equipment", range: "Wide Product Range",
+    guidance: "Product Guidance", support: "Customer Support",
+  },
+  about: {
+    title: "About Mother Soil",
+    text: "Mother Soil Equipments is based in Namakkal, Tamil Nadu, providing agricultural equipment and related products.",
+    more: "Learn More",
+  },
+  faq: {
+    title: "Frequently Asked Questions",
+    q1: "What agricultural equipment do you provide?",
+    a1: "We have products across sprayers, brush cutters, weeders, power tools, accessories and other agricultural equipment.",
+    q2: "Do you provide subsidy guidance?",
+    a2: "We can help you understand subsidy-related information for applicable agricultural machinery. Scheme rules and eligibility depend on the government programme.",
+    q3: "How can I enquire about a product?",
+    a3: "Use the Enquire or WhatsApp option on a product, or contact Mother Soil Equipments directly.",
+    q4: "Where are you located?",
+    a4: "Mother Soil Equipments is located on Salem Road, Namakkal, Tamil Nadu.",
+  },
+  contact: {
+    title: "Need Agricultural Equipment?", text: "Contact Mother Soil Equipments for your agricultural equipment requirements.",
+    whatsapp: "WhatsApp", call: "Call", email: "Email", formTitle: "Send an Enquiry",
+    name: "Your Name", phone: "Phone Number", message: "Your Message",
+    send: "Send Enquiry", success: "Thank you. Your enquiry is ready to be sent.",
+  },
+  footer: { follow: "Follow Mother Soil", quickLinks: "Quick Links", categories: "Categories", rights: "All rights reserved." },
+}

@@ -11,7 +11,9 @@ const { t } = inject("siteI18n")
 const openFaq = ref(0)
 const subsidyScroller = ref(null)
 const subsidyProducts = computed(() => products.filter((product) => product.subsidy?.applicable).slice(0, 6))
-const whatsapp = computed(() => `https://wa.me/${company.whatsapp}?text=${encodeURIComponent("Hello Mother Soil Equipments, I would like to enquire about agricultural equipment.")}`)
+const whatsapp = computed(() =>
+  `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(t.value.messages.whatsappGeneral)}`
+)
 function toggleFaq(index) { openFaq.value = openFaq.value === index ? -1 : index }
 function moveSubsidy(direction) { subsidyScroller.value?.scrollBy({ left: direction * 285, behavior: "smooth" }) }
 </script>
@@ -25,7 +27,7 @@ function moveSubsidy(direction) { subsidyScroller.value?.scrollBy({ left: direct
           <p class="eyebrow">{{ t.hero.eyebrow }}</p><h1>{{ t.hero.title }}</h1><p class="hero-text">{{ t.hero.text }}</p>
           <div class="hero-actions"><RouterLink to="/products" class="btn btn-primary">{{ t.hero.products }}</RouterLink><RouterLink to="/contact" class="btn btn-secondary">{{ t.hero.contact }}</RouterLink></div>
         </div>
-        <div class="hero-video"><video src="/videos/hero-video.mp4" poster="/images/hero-bg.jpg" autoplay muted loop playsinline controls preload="metadata"></video><div class="hero-video-caption">Agricultural Equipment</div></div>
+        <div class="hero-video"><video src="/videos/hero-video.mp4" poster="/images/hero-bg.jpg" autoplay muted loop playsinline controls preload="metadata"></video><div class="hero-video-caption">{{ t.hero.videoCaption }}</div></div>
       </div>
     </section>
 
@@ -39,23 +41,23 @@ function moveSubsidy(direction) { subsidyScroller.value?.scrollBy({ left: direct
           <RouterLink to="/subsidy" class="btn btn-primary">{{ t.subsidy.details }}</RouterLink>
         </div>
         <div v-if="subsidyProducts.length" class="subsidy-row-wrap">
-          <button class="row-arrow" type="button" aria-label="Previous subsidy products" @click="moveSubsidy(-1)">←</button>
+          <button class="row-arrow" type="button" :aria-label="t.subsidy.previous" @click="moveSubsidy(-1)">←</button>
           <div ref="subsidyScroller" class="horizontal-scroll row-scroll subsidy-scroll">
             <ProductCard v-for="product in subsidyProducts" :key="product.id" :product="product" />
           </div>
-          <button class="row-arrow" type="button" aria-label="Next subsidy products" @click="moveSubsidy(1)">→</button>
+          <button class="row-arrow" type="button" :aria-label="t.subsidy.next" @click="moveSubsidy(1)">→</button>
         </div>
-        <div v-else class="empty-panel"><p>No subsidy-supported products have been published yet.</p><RouterLink to="/subsidy" class="text-link">{{ t.subsidy.view }} →</RouterLink></div>
+        <div v-else class="empty-panel"><p>{{ t.subsidy.emptyTitle }}</p><RouterLink to="/subsidy" class="text-link">{{ t.subsidy.view }} {{ t.common.arrow }}</RouterLink></div>
       </div>
     </section>
 
     <section class="section"><div class="container">
-      <div class="section-heading centered"><p class="eyebrow">OUR PROMISE</p><h2>{{ t.why.title }}</h2></div>
+      <div class="section-heading centered"><p class="eyebrow">{{ t.why.eyebrow }}</p><h2>{{ t.why.title }}</h2></div>
       <div class="why-grid">
-        <div class="why-card"><span>✓</span><h3>{{ t.why.quality }}</h3><p>Practical equipment selected for agricultural requirements.</p></div>
-        <div class="why-card"><span>▦</span><h3>{{ t.why.range }}</h3><p>Multiple categories for different farm and field needs.</p></div>
-        <div class="why-card"><span>?</span><h3>{{ t.why.guidance }}</h3><p>Get help understanding products before you enquire.</p></div>
-        <div class="why-card"><span>☎</span><h3>{{ t.why.support }}</h3><p>Reach our team through phone, email or WhatsApp.</p></div>
+        <div class="why-card"><span>✓</span><h3>{{ t.why.quality }}</h3><p>{{ t.why.qualityText }}</p></div>
+        <div class="why-card"><span>▦</span><h3>{{ t.why.range }}</h3><p>{{ t.why.rangeText }}</p></div>
+        <div class="why-card"><span>?</span><h3>{{ t.why.guidance }}</h3><p>{{ t.why.guidanceText }}</p></div>
+        <div class="why-card"><span>☎</span><h3>{{ t.why.support }}</h3><p>{{ t.why.supportText }}</p></div>
       </div>
     </div></section>
 

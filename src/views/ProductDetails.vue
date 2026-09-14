@@ -26,8 +26,8 @@ const whatsappUrl = computed(() => product.value ? `https://wa.me/${company.what
           <span class="pill">{{ language === "ta" ? category?.tamil : category?.name }}</span>
           <span v-if="product.subsidy?.applicable" class="pill subsidy-pill">{{ t.subsidy.badge }}</span>
           <h1>{{ title }}</h1><p>{{ description }}</p>
-          <p class="contact-note">Contact us for current availability, specifications and quotation.</p>
-          <div class="hero-actions"><a class="btn btn-primary" :href="whatsappUrl" target="_blank" rel="noopener">{{ t.products.enquire }} · WhatsApp</a><RouterLink to="/contact" class="btn btn-secondary">{{ t.nav.contact }}</RouterLink></div>
+          <p class="contact-note">{{ t.messages.productContact }}</p>
+          <div class="hero-actions"><a class="btn btn-primary" :href="whatsappUrl" target="_blank" rel="noopener">{{ t.products.enquire }} · {{ t.common.whatsapp }}</a><RouterLink to="/contact" class="btn btn-secondary">{{ t.nav.contact }}</RouterLink></div>
         </div>
       </div>
       <div v-if="related.length" class="related-section"><div class="section-heading"><h2>{{ t.products.related }}</h2></div><div class="product-grid"><ProductCard v-for="item in related" :key="item.id" :product="item" /></div></div>

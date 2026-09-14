@@ -9,7 +9,16 @@ const { language, t } = inject("siteI18n")
 const category = computed(() => categories.find((item) => item.id === props.product.categoryId))
 const title = computed(() => language.value === "ta" ? props.product.tamil : props.product.name)
 const description = computed(() => language.value === "ta" ? props.product.tamilDescription : props.product.description)
-const whatsappUrl = computed(() => `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(`Hello Mother Soil Equipments, I am interested in ${props.product.name}.`)}`)
+const whatsappUrl = computed(() => {
+  const productName =
+    language.value === "ta"
+      ? props.product.tamil || props.product.name
+      : props.product.name
+
+  const message = `${t.value.messages.whatsappProduct} ${productName}.`
+
+  return `https://wa.me/${company.whatsapp}?text=${encodeURIComponent(message)}`
+})
 </script>
 
 <template>
@@ -23,8 +32,8 @@ const whatsappUrl = computed(() => `https://wa.me/${company.whatsapp}?text=${enc
       <h3>{{ title }}</h3>
       <p>{{ description }}</p>
       <div class="product-actions">
-        <RouterLink :to="`/products/${product.categoryId}/${product.id}`" class="text-link">{{ t.products.details }} →</RouterLink>
-        <a class="whatsapp-mini" :href="whatsappUrl" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        <RouterLink :to="`/products/${product.categoryId}/${product.id}`" class="text-link">{{ t.products.details }} {{ t.common.arrow }}</RouterLink>
+        <a class="whatsapp-mini" :href="whatsappUrl" target="_blank" rel="noopener noreferrer">{{ t.common.whatsapp }}</a>
       </div>
     </div>
   </article>

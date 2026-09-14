@@ -26,7 +26,7 @@ function isActive(to) { return to === "/" ? route.path === "/" : route.path.star
         <span class="brand-name">Mother Soil<br /><small>Equipments</small></span>
       </RouterLink>
 
-      <button class="menu-toggle" type="button" aria-label="Toggle menu" @click="open = !open">
+      <button class="menu-toggle" type="button" :aria-label="t.nav.menu" @click="open = !open">
         <span></span><span></span><span></span>
       </button>
 
@@ -35,9 +35,9 @@ function isActive(to) { return to === "/" ? route.path === "/" : route.path.star
           :class="{ active: isActive(item.to) }" @click="closeMenu">
           {{ t.nav[item.key] }}
         </RouterLink>
-        <button class="language-switch" type="button" @click="toggleLanguage(); closeMenu()">
-          {{ language === "en" ? "தமிழ்" : "EN" }}
-        </button>
+        <!-- <button class="language-switch" type="button" @click="toggleLanguage(); closeMenu()">
+          {{ language === "en" ? t.nav.language : "EN" }}
+        </button> -->
       </nav>
     </div>
   </header>
